@@ -1,10 +1,11 @@
 import Container from "./components/Container"
+import LoggedIn from "./state/LoggedIn"
 
 
 const App = () => {
   return (
     <div>
-      <Container styles={{border: '2px solid red', padding: '1rem'}}/>
+      <LoggedIn/>
     </div>
   )
 }
