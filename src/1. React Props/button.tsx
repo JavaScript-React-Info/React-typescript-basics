@@ -1,29 +1,30 @@
 
-import React from 'react'
+import React, { Component, ComponentProps } from 'react'
 
-type Color = "red"| "blue"| "green"
 
-type ButtonProps = {
-    // backgroundColor: string,
-    backgroundColor: Color,
-    fontSize: number,
-    buttonEnabled?: boolean,
-    // padding?: number[] // we can gibve more number of array
-    padding?: [number, number, number, number], //tuple
-    style?: React.CSSProperties,
-    borderRadius: Record<string, number>,
-    // onClick: ()=> void
-    onClick: (test: string) => number,
-    children: React.ReactNode,
-    // children: JSX.Element
-    setCount: React.Dispatch<React.SetStateAction<number>>
+// type ButtonProps = {
+//   type: 'submit' | 'reset' | 'button',
+//   autoFocus?: boolean
+// }
+// no need to pass native elements as props. we can directly use
+
+type ButtonProps = React.ComponentPropsWithoutRef<"button"> & {
+  variant? : "primary" | "secondary"
 }
+//React.ComponentProps<"a">
+//React.ComponentProps<"img"> 
 
-const Button = (props: ButtonProps) => {
-    const {backgroundColor, fontSize, style, borderRadius, onClick, children} = props;
+
+const Button = ({
+  type,
+  autoFocus,
+  variant,
+  ...rest
+}: ButtonProps) => {
+
   return (
-    <button className='button-class' style={style}>
-        {children}
+    <button className='button-class' type={type} autoFocus={autoFocus} {...rest}>
+      Click me
     </button>
   )
 }
