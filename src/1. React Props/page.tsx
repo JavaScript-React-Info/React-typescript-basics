@@ -1,6 +1,9 @@
+import { useState } from "react";
 import Button from "./button";
 
 export default function Home(){
+    const [count, setCount] = useState(0);
+
     const onClick = (test: string) => {return 123}
     return(
         <main className="home-class">
@@ -19,6 +22,7 @@ export default function Home(){
                 "topRight": 5
             }}
             onClick={onClick}
+            setCount= {setCount}
             >
                 Click me
             </Button>

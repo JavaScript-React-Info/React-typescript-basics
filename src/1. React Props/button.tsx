@@ -16,6 +16,7 @@ type ButtonProps = {
     onClick: (test: string) => number,
     children: React.ReactNode,
     // children: JSX.Element
+    setCount: React.Dispatch<React.SetStateAction<number>>
 }
 
 const Button = (props: ButtonProps) => {
