@@ -1,23 +1,38 @@
 
-import React, { Component, ComponentProps, useEffect, useRef, useState } from 'react'
+import React, { Component, ComponentProps, useEffect, useRef, useState } from 'react';
+
+const buttonOption = [
+  "option-1",
+  "option-2",
+  "option-3"
+] as const;
+//using as const will have only the above array not string[]
+
+type User = {
+  sessionId: string,
+  name: string
+}
+
+type Guest = Omit<User, "name">
+
+
+type ButtonColor = "red" | "blue" | "green"
 
 
 const Button = () => {
 
-  // useEffect doesnt need any type
-  // useEffect(() => {
-  //   return()=>{
-  //   }
-  // },[])
 
-  const ref = useRef<HTMLButtonElement>(null);
-  //Element
-  //HTMLButtonElement
-  //HTMLElement
+  useEffect(()=>{
+    const previousButtonColor = localStorage.getItem("buttonColor") as ButtonColor
+  }, [])
 
   return (
-    <button ref={ref}>
-      Click me
+    <button>
+      {
+        buttonOption.map((option)=>{
+          return option
+        })
+      }
     </button>
   )
 }
