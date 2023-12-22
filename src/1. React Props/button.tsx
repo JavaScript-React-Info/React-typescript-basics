@@ -1,30 +1,13 @@
 
 import React, { Component, ComponentProps, useEffect, useRef, useState } from 'react';
 
-// we need to use , after <T,> in JSX
-// const converToArray = <T,>(value: T): T[] =>{
-//     return [value]
-// }
+import { type Color } from './types';
 
-// function converToArray<T>(value:T): T[]{
-//   return [value]
-// }
-
-// converToArray("5")
-// converToArray(6);
-// converToArray(true)
-
-
-type ButtonProps<T> = {
-  countValue: T,
-  countHistory: T[]
+type ButtonProps = {
+  color: Color
 }
 
-const Button = <T,>({
-  countValue,
-  countHistory
-}: ButtonProps<T>) => {
-
+const Button = () => {
   return (
     <button>
       Click Me
