@@ -2,28 +2,12 @@
 import React, { Component, ComponentProps } from 'react'
 
 
-// type ButtonProps = {
-//   type: 'submit' | 'reset' | 'button',
-//   autoFocus?: boolean
-// }
-// no need to pass native elements as props. we can directly use
+const Button = () => {
 
-type ButtonProps = React.ComponentPropsWithoutRef<"button"> & {
-  variant? : "primary" | "secondary"
-}
-//React.ComponentProps<"a">
-//React.ComponentProps<"img"> 
-
-
-const Button = ({
-  type,
-  autoFocus,
-  variant,
-  ...rest
-}: ButtonProps) => {
-
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => console.log("clicked");
+  
   return (
-    <button className='button-class' type={type} autoFocus={autoFocus} {...rest}>
+    <button onClick={handleClick}>
       Click me
     </button>
   )
