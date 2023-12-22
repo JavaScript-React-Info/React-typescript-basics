@@ -1,38 +1,33 @@
 
 import React, { Component, ComponentProps, useEffect, useRef, useState } from 'react';
 
-const buttonOption = [
-  "option-1",
-  "option-2",
-  "option-3"
-] as const;
-//using as const will have only the above array not string[]
+// we need to use , after <T,> in JSX
+// const converToArray = <T,>(value: T): T[] =>{
+//     return [value]
+// }
 
-type User = {
-  sessionId: string,
-  name: string
+// function converToArray<T>(value:T): T[]{
+//   return [value]
+// }
+
+// converToArray("5")
+// converToArray(6);
+// converToArray(true)
+
+
+type ButtonProps<T> = {
+  countValue: T,
+  countHistory: T[]
 }
 
-type Guest = Omit<User, "name">
-
-
-type ButtonColor = "red" | "blue" | "green"
-
-
-const Button = () => {
-
-
-  useEffect(()=>{
-    const previousButtonColor = localStorage.getItem("buttonColor") as ButtonColor
-  }, [])
+const Button = <T,>({
+  countValue,
+  countHistory
+}: ButtonProps<T>) => {
 
   return (
     <button>
-      {
-        buttonOption.map((option)=>{
-          return option
-        })
-      }
+      Click Me
     </button>
   )
 }
